@@ -1,0 +1,6 @@
+class EnglishWord < ActiveRecord::Base
+  attr_accessible :word
+  
+  has_many :translations
+  
+end

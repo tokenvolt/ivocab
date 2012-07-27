@@ -1,0 +1,6 @@
+class WordsController < ApplicationController
+
+  def index
+    @english_words = EnglishWord.order(:entry)
+  end
+end
