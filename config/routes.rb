@@ -1,7 +1,7 @@
 Ivocab::Application.routes.draw do
 
-  match "/words" => 'words#index', as: :list_words
-  
+  root :to => 'words#index', as: :list_words
+
   match "/words/new" => 'words#new', as: :new_word
   
   match "/words/create" => 'words#create'
@@ -12,7 +12,7 @@ Ivocab::Application.routes.draw do
   
   match "/words/:id/edit" => 'words#edit', as: :edit_word
   
-  match "/words/:id/update" => 'words#update'
+  match "/words/:id/update" => 'words#update' 
   
 
  
