@@ -3,4 +3,50 @@ class WordsController < ApplicationController
   def index
     @english_words = EnglishWord.order(:entry)
   end
+  
+  def show
+    @english_word = EnglishWord.find(params[:id])
+  end
+  
+  def new
+    @english_word = EnglishWord.new
+    @english_word.russian_words.build
+  end
+  
+  def create
+    @english_word = EnglishWord.new(params[:english_word])    
+    
+    respond_to do |format|
+      if @english_word.save
+        format.html { redirect_to list_words_path }
+      else
+        format.html { redirect_to new_word_path }
+      end
+    end
+  end
+  
+  def edit
+    @english_word = EnglishWord.find(params[:id])
+  end
+  
+  def update
+    @english_word = EnglishWord.find(params[:id])   
+    
+    respond_to do |format|
+      if @english_word.update_attributes(params[:english_word])
+        format.html { redirect_to list_words_path, notice: 'Survey was successfully updated.'}
+      else
+        format.html { redirect_to edit_word_path }
+      end
+    end
+  end
+  
+  def destroy
+    @english_word = EnglishWord.find(params[:id])
+    @english_word.destroy
+
+    respond_to do |format|
+      format.html { redirect_to list_words_path }
+    end
+  end
 end

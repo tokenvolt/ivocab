@@ -1,0 +1,13 @@
+<%= @page_title = "Update Word" %>
+
+<%= link_to 'Back To List', list_words_path, class: "back-link" %>
+
+<%= debug @english_word %>
+
+<div class="word update">
+  <h2>Update Word</h2>
+  
+  <%= render 'form' %>
+  
+</div>
+

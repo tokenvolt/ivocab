@@ -1,3 +1,65 @@
 // Place all the styles related to the Words controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.words {
+  margin-left: 10px; 
+}
+
+.listing, .translation { 
+  background: #e5e5e5;
+  margin: 5px;
+  padding: 0;
+  width: 250px;
+  float: left;  
+}
+
+.translation {
+  display: none; 
+  padding: 0 10px 10px 10px;
+}
+
+.listing a, .translation a {  
+  float: right;  
+  text-decoration: none;
+}
+
+.listing a:hover, .translation a:hover {
+  text-decoration: underline;
+}
+
+.listing ul, .translation ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  //background: #d3d3d3;
+  
+}
+
+.listing ul li.english_word, .translation ul li {
+  padding: 0 10px 0 20px;
+  line-height: 2em;
+  text-align: center;  
+}
+
+.listing ul li:hover {
+  background: #d3d3d3;
+}
+
+.button:hover {
+  background: #EEEEEE;
+}
+
+.action {
+  position: relative;  
+  left: 80px;
+}
+
+p.total {
+  font-size: 0.8em;
+}
+
+form.button_to {
+  background: #EEEEEE;
+  padding: 10px 0;
+}

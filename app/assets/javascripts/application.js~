@@ -11,16 +11,17 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery-ui
 //= require jquery_ujs
 //= require_tree .
 
 function remove_fields(link) {
+  console.log($(link));
   $(link).prev("input[type=hidden]").val("1");
   $(link).closest('.fields').hide();
 }
 
 function add_fields(link, association, content) {
+console.log(link);
   var new_id = new Date().getTime();
   var regexp = new RegExp("new_" + association, "g");
   $(link).parent().before(content.replace(regexp, new_id));
@@ -28,7 +29,9 @@ function add_fields(link, association, content) {
 
 $(function() {
   $('div.listing ul').children('li').on('click', function() {
-
+    console.log(this + 'clicked');
+    
+    
   });
 });
 

@@ -1,0 +1,19 @@
+<% @page_title = "Main" %>
+
+<div class="words list">
+  <h2>English Words</h2>
+  
+  
+  
+  
+  <div class="listing">
+    <ul>
+    <% @english_words.each do |english_word| %>    
+      <li><%= english_word.entry %></li>    
+    <% end %>
+    </ul> 
+    <div class="button new">
+      <%= button_to 'Add new word', new_word_path, class: 'action new' %>
+    </div>
+  </div>
+</div>

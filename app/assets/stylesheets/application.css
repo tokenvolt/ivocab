@@ -9,9 +9,70 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
+ *= require_tree 
+ *
+ * Color: #FFB319 - orange
+ * 
+ *
+ *
+ *.
  */
  
 body {
-  background: #FFB319;
+  background: #EEEEEE;
+  font-size: 1.25em;
 }
+
+a {
+	font-size: 0.65em;
+	color: #1DA1B3;
+}
+
+#notice {
+	width: 500px;
+	font-size: 0.7em;
+	padding: 1.1em;
+	background: #7FE3A9;
+}
+
+.field_with_errors {
+	margin-top: 10px;
+	padding: 2px;
+	background-color: red;
+	display: inline;
+}
+
+.field_with_errors label {
+	color: #fff;
+}
+
+#error_explanation {
+	width: 500px;
+	border: 3px solid red;
+	font-size: 0.9em;
+	padding: 7px 7px 12px 7px;
+	margin-bottom: 20px;
+	background: #f0f0f0;
+}
+
+#error_explanation h2 {
+	text-align: left;
+	font-weight: bold;
+	padding: 5px 5px 5px 15px;
+	font-size: 0.9em;
+	margin: -7px;
+	background-color: #c00;
+	color: #fff;
+}
+
+#error_explanation p {
+	color: #333;
+	margin-bottom: 0;
+	padding: 5px;	
+}
+
+#error_explanation ul li {
+	font-size: 0.85em;
+	list-style: square;
+}
+

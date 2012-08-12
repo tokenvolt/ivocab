@@ -1,0 +1,29 @@
+<%= @page_title = 'Words List' %>
+
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<div class="words list">
+  <h2>English Words</h2>
+  
+  <%= link_to("Add New Word", new_word_path, :class => 'action new') %>
+
+  <table class="listing" summary="Word list">
+    <tr class="header">
+      <th>&nbsp;</th>
+      <th>English</th>
+    </tr>
+    <% @english_words.each do |english_word| %>
+    <tr>
+      <td><%= english_word.entry %></td>
+      <td class="actions">
+        <%= link_to 'Show', words(english_word.id), class: 'action show' %>
+        <%= link_to 'Destroy', destroy_word(english_word.id), 
+                                confirm: "Are you sure?",
+                                method: 'delete' %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

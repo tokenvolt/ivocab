@@ -1,0 +1,14 @@
+<%= @page_title = "Add New Word" %>
+
+<%= link_to 'Back To List', list_words_path, class: "back-link" %>
+
+<%= debug :params %>
+<%= debug @english_word %>
+
+<div class="word new">
+  <h2>Add New Word</h2>
+  
+  <%= render 'form' %>
+  
+</div>
+

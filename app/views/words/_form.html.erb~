@@ -1,0 +1,16 @@
+<%= form_for @english_word do |f| %>
+  <div class="fields">
+    <%= f.label :entry, 'English Word' %>
+    <%= f.text_field :entry %><br />
+
+    <%= f.fields_for :russian_words do |builder| %>
+      <%= render 'russian_word_fields', :f => builder %>
+    <% end %>
+    
+    <p><%= link_to_add_fields "Add Russian Word", f, :russian_words %></p> 
+           
+    <div class="form-buttons">
+      <%= submit_tag("Add") %>
+    </div>
+  </div>
+<% end %>

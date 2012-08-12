@@ -1,5 +1,13 @@
 class RussianWord < ActiveRecord::Base
-  attr_accessible :word
+  attr_accessible :entry
   
-  has_many :translations
+  has_many :english_words, :through => :translations
+  has_many :translations, :dependent => :destroy
+  
+  private
+  
+  def russian_words_destroy
+    self.russian_words.destroy_all 
+  end
+  
 end

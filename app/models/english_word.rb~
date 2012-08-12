@@ -1,6 +1,9 @@
 class EnglishWord < ActiveRecord::Base
-  attr_accessible :word
+  attr_accessible :entry, :russian_words_attributes
   
-  has_many :translations
+  has_many :russian_words, :through => :translations
+  has_many :translations, :dependent => :destroy
   
+  accepts_nested_attributes_for :russian_words
+
 end

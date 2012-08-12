@@ -1,0 +1,25 @@
+<% @page_title = "Main" %>
+
+<div class="words">
+  <p class="total">Words in vocabulary: <%= @total_word_count %></p> 
+ 
+  <div class="listing">
+  <ul>
+    <%= content_tag_for :li, @english_words do |english_word| %>  
+      <%= english_word.entry %> <%= link_to 'Show', word_path(id: english_word.id), :remote => true %>
+    <% end %>
+  </ul>
+
+      <%= button_to 'Add new word', new_word_path, class: 'action' %>
+
+  </div>
+
+
+  <div class="translation">
+  <% if @english_word %>
+    <%= render 'english_word' %> 
+  <% end %>
+  </div>
+ 
+</div>
+

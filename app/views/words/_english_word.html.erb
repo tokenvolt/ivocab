@@ -1,0 +1,8 @@
+<ul>
+    <% @english_word.russian_words.each do |russian_word| %>    
+      <li><%= russian_word.entry %></li>
+    <% end %>
+</ul>
+
+  <%= link_to 'Edit', edit_word_path(id: @english_word.id), class: "edit" %><br />
+  <%= link_to 'Destroy', { :action => 'destroy', :id => @english_word.id }, data: { confirm: 'Are you sure?' }, :remote => true, class: "destroy" %>
