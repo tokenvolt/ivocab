@@ -23,21 +23,14 @@ class WordsController < ApplicationController
     end
   end
   
-  def create
+  def create    
     @english_word = EnglishWord.new(params[:english_word])
-    @english_word.russian_words.each do |russian_word|
-      repeated_russian_word = RussianWord.where(entry: russian_word.entry) 
-      unless repeated_russian_word.blank?
-        @english_word.translations.build(russian_word_id: repeated_russian_word.first.id)
-        russian_word.destroy
-      end
-    end
-    
+   
     respond_to do |format|
       if @english_word.save
-        @english_word.russian_words(true)
-        format.html { redirect_to list_words_path, notice: " The word '#{@english_word.entry}' was successfully
-        added to the vocabulary" }
+        format.html { redirect_to list_words_path, 
+          notice: " The word '#{@english_word.entry}' was successfully
+          added to the vocabulary" }
       else
         format.html { render action: "new" }
         format.json { render json: @english_word.errors, status: :unprocessable_entity }
@@ -50,14 +43,16 @@ class WordsController < ApplicationController
   end
   
   def update
-    @english_word = EnglishWord.find(params[:id])   
-    
+    @english_word = EnglishWord.find(params[:id])
+   
     respond_to do |format|
       if @english_word.update_attributes(params[:english_word])
-        format.html { redirect_to list_words_path, notice: "The word #{@english_word.entry} was successfully updated."}
+        format.html { redirect_to list_words_path,
+          notice: "The word '#{@english_word.entry}'
+          was successfully updated."}
       else
-        format.html { redirect_to edit_word_path }
-
+        format.html { render action: "edit" }
+        format.json { render json: @english_word.errors, status: :unprocessable_entity }
       end
     end
   end

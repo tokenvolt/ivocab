@@ -5,6 +5,5 @@ class RussianWord < ActiveRecord::Base
   has_many :translations, :dependent => :destroy
 
   validates :entry, presence: true,
-                    uniqueness: true
-  
+                    length: { maximum: 35 }
 end

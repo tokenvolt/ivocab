@@ -2,17 +2,12 @@ Ivocab::Application.routes.draw do
 
   root :to => 'words#index', as: :list_words
 
-  match "/words/new" => 'words#new', as: :new_word
-  
-  match "/words/create" => 'words#create'
-  
-  match "/words/:id/destroy" => 'words#destroy'
-  
-  match "/words/:id" => 'words#index', as: :word
-  
-  match "/words/:id/edit" => 'words#edit', as: :edit_word
-  
-  match "/words/:id/update" => 'words#update' 
+  match "/words/new" => 'words#new', as: :new_word  
+  match "/words/create" => 'words#create'  
+  match "/words/:id/destroy" => 'words#destroy'  
+  match "/words/:id" => 'words#index', as: :word  
+  match "/words/:id/edit" => 'words#edit', as: :edit_word  
+  match "/words/:id/update" => 'words#update'
   
 
  

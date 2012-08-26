@@ -1,3 +1,7 @@
 $('#<%=j dom_id(@english_word) %>').css('background', '#FF7373');
 $('div.translation').hide("fade", {}, 800);
 $('#<%=j dom_id(@english_word) %>').hide("fade", {}, 800);
+var total = $('span.total');
+var total_word_count = parseInt(total.text());
+total_word_count -= 1;
+total.empty().effect("highlight", { color: "#cc0000" }, 800).append(total_word_count);

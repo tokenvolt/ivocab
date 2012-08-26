@@ -1,5 +1,5 @@
 <ul>
-    <% @english_word.russian_words.each do |russian_word| %>    
+    <% @english_word.russian_words.order(:entry).each do |russian_word| %>    
       <li><%= russian_word.entry %></li>
     <% end %>
 </ul>
