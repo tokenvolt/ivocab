@@ -1,7 +1,11 @@
 class WordsController < ApplicationController
 
   def index
-    @english_words = EnglishWord.order(:entry)
+    if params[:search]
+      @english_words = EnglishWord.search(params[:search])
+    else
+      @english_words = EnglishWord.order(:entry)
+    end
     @total_word_count = EnglishWord.all.length
     if params[:id]      
       @english_word = EnglishWord.find(params[:id])

@@ -3,8 +3,10 @@
 <div class="words">
   <p class="total">Words in vocabulary: 
     <span class="total"><%= @total_word_count %></span>
-  </p> 
- 
+  </p>
+
+  <%= render 'search_form' %> 
+
   <div class="listing">
   <ul>
     <%= content_tag_for :li, @english_words do |english_word| %>  

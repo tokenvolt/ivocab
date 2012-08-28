@@ -3,9 +3,12 @@ class EnglishWord < ActiveRecord::Base
   
   has_many :russian_words, :through => :translations, uniq: true
   has_many :translations, :dependent => :destroy
+#  has_many :part_of_speeches, :through => :english_words_pos
   
   accepts_nested_attributes_for :russian_words, :reject_if => lambda { |a| a[:entry].blank? }, allow_destroy: true
   
+  scope :search, lambda { |query| where("entry LIKE ?", "%#{query}%") }
+
   validates :entry, presence: true,
                     uniqueness: true,
                     length: { maximum: 35 }
