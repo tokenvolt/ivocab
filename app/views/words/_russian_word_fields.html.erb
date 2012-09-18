@@ -1,3 +1,6 @@
+<div class="fields">
 	<%= f.input :entry, :label => 'Russian Word' %>
-	<%= link_to_remove_fields "remove", f %>
+	<%= f.input :part_of_speech, :collection => RussianWord::PART_OF_SPEECH, :include_blank => false %>
 
+	<%= link_to_remove_fields "remove", f %>
+</div>

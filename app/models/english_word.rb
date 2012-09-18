@@ -17,7 +17,7 @@ class EnglishWord < ActiveRecord::Base
   def check_russian_translations
     if self.russian_words
       self.russian_words = self.russian_words.map do |russian_word|
-        RussianWord.find_or_create_by_entry(russian_word.entry)
+        RussianWord.find_or_initialize_by_entry_and_part_of_speech(russian_word.entry, russian_word.part_of_speech)
       end
     end    
   end

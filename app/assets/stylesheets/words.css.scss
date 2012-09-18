@@ -46,6 +46,12 @@
   background: #d3d3d3;
 }
 
+.translation ul li.part_of_speech {
+  float: left;
+  font-size: 0.85em;
+  font-weight: bold;
+}
+
 .button:hover {
   background: #EEEEEE;
 }
@@ -53,6 +59,10 @@
 .action {
   position: relative;  
   left: 80px;
+}
+
+.clearfix {
+  clear: left;
 }
 
 p.total {

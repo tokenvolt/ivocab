@@ -1,6 +1,11 @@
 <ul>
-    <% @english_word.russian_words.order(:entry).each do |russian_word| %>    
+    <% @english_word.russian_words.order(:part_of_speech, :entry).inject(0) do |previous_part_of_speech, russian_word| %>
+      <% unless previous_part_of_speech == russian_word.part_of_speech %>
+        <li class="part_of_speech"><%= russian_word.part_of_speech %></li>
+        <div class="clearfix"></div>
+      <% end %>
       <li><%= russian_word.entry %></li>
+      <% russian_word.part_of_speech %>
     <% end %>
 </ul>
 

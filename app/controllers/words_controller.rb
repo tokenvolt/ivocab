@@ -7,13 +7,17 @@ class WordsController < ApplicationController
       @english_words = EnglishWord.order(:entry)
     end
     @total_word_count = EnglishWord.all.length
-    if params[:id]      
-      @english_word = EnglishWord.find(params[:id])
-    end
+    show
 
     respond_to do |format|
       format.html
       format.js
+    end
+  end
+
+  def show
+    if params[:id]      
+      @english_word = EnglishWord.find(params[:id])
     end
   end
   
@@ -34,13 +38,13 @@ class WordsController < ApplicationController
       if @english_word.save
         format.html { redirect_to list_words_path, 
           notice: " The word '#{@english_word.entry}' was successfully
-          added to the vocabulary" }
+          added to the vocabulary" }  
       else
         format.html { render action: "new" }
         format.json { render json: @english_word.errors, status: :unprocessable_entity }
       end
     end
-  end
+  end  
   
   def edit
     @english_word = EnglishWord.find(params[:id])

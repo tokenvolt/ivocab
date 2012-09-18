@@ -21,15 +21,12 @@
 body {
   background: #EEEEEE;
   font-size: 1.25em;
+  color: #444;
 }
 
 a {
 	font-size: 0.65em;
 	color: #1DA1B3;
-}
-
-button {
-	
 }
 
 #notice {

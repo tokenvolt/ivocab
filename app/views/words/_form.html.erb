@@ -1,12 +1,16 @@
 <%= simple_form_for @english_word, :url => { action: 'create' } do |f| %>
 
-  <%= f.input :entry, :label => 'English Word' %>  
+  <div class="fields">
+    <%= f.input :entry, :label => "English Word" %>
 
-  <%= f.simple_fields_for :russian_words do |builder| %>
-    <%= render 'russian_word_fields', :f => builder %>
-  <% end %>  
-
-  <p><%= link_to_add_fields "Add Russian Word", f, :russian_words %></p> 
-
-  <%= f.button :submit %>
+    <%= f.simple_fields_for :russian_words do |builder| %>
+      <%= render 'russian_word_fields', :f => builder %>
+    <% end %>
+    
+    <p><%= link_to_add_fields "Add Russian Word", f, :russian_words %></p> 
+           
+    <div class="form-buttons">
+      <%= f.button :submit %>
+    </div>
+  </div>
 <% end %>
