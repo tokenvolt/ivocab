@@ -8,9 +8,7 @@ Ivocab::Application.routes.draw do
   match "/words/:id" => 'words#index', as: :word  
   match "/words/:id/edit" => 'words#edit', as: :edit_word  
   match "/words/:id/update" => 'words#update'
-  
 
- 
   # resources :words
   
   # The priority is based upon order of creation:
